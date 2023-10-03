@@ -104,7 +104,7 @@ Expected equality of these values:
   the_machine->memory[199]
     Which is: 0
   10
-[  FAILED  ] lmsm_machine_suite.test_push_instruction (0 ms)
+[  FAILED  ] lmsm_machine_suite.test_push_instruction (1 ms)
 [ RUN      ] lmsm_machine_suite.test_pop_instruction_removes_top_of_stack
 /home/parallels/autograder/csci-366-fall2023/grading/scripts/repos/elyse_dalager/lmsm/test/lmsm.cpp:153: Failure
 Expected equality of these values:
@@ -178,7 +178,7 @@ Expected equality of these values:
     Which is: 3
   error_code::ERROR_BAD_STACK
     Which is: 1
-[  FAILED  ] lmsm_machine_suite.test_sadd_instruction_enters_error_state_if_not_enough_elts (1 ms)
+[  FAILED  ] lmsm_machine_suite.test_sadd_instruction_enters_error_state_if_not_enough_elts (0 ms)
 [ RUN      ] lmsm_machine_suite.test_ssub_instruction_subtracts_the_values_on_the_stack
 /home/parallels/autograder/csci-366-fall2023/grading/scripts/repos/elyse_dalager/lmsm/test/lmsm.cpp:286: Failure
 Expected equality of these values:
