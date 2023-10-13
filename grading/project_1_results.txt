@@ -148,7 +148,7 @@ Expected equality of these values:
   the_machine->memory[199]
     Which is: 0
   10
-[  FAILED  ] lmsm_machine_suite.test_swap_instruction_swaps_top_of_stack (1 ms)
+[  FAILED  ] lmsm_machine_suite.test_swap_instruction_swaps_top_of_stack (0 ms)
 [ RUN      ] lmsm_machine_suite.test_swap_instruction_enters_error_state_if_nothing_to_swap
 /home/parallels/autograder/csci-366-fall2023/grading/scripts/repos/elyse_dalager/lmsm/test/lmsm.cpp:240: Failure
 Expected equality of these values:
