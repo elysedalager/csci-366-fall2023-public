@@ -163,7 +163,7 @@ Expected equality of these values:
   the_machine->memory[199]
     Which is: 0
   20
-[  FAILED  ] lmsm_machine_suite.test_sadd_instruction_adds_the_values_on_the_stack (0 ms)
+[  FAILED  ] lmsm_machine_suite.test_sadd_instruction_adds_the_values_on_the_stack (1 ms)
 [ RUN      ] lmsm_machine_suite.test_sadd_instruction_properly_caps_values
 /home/parallels/autograder/csci-366-fall2023/grading/scripts/repos/elyse_dalager/lmsm/test/lmsm.cpp:264: Failure
 Expected equality of these values:
@@ -281,7 +281,7 @@ Expected equality of these values:
   the_machine->stack_pointer
     Which is: 200
   199
-[  FAILED  ] lmsm_machine_suite.test_call_instruction_jumps_to_correct_location_and_consumes_top_of_stack (1 ms)
+[  FAILED  ] lmsm_machine_suite.test_call_instruction_jumps_to_correct_location_and_consumes_top_of_stack (0 ms)
 [ RUN      ] lmsm_machine_suite.return_set_program_counter_to_return_address_and_restores_return_address
 /home/parallels/autograder/csci-366-fall2023/grading/scripts/repos/elyse_dalager/lmsm/test/lmsm.cpp:466: Failure
 Expected equality of these values:
