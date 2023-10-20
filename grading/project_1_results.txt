@@ -75,7 +75,7 @@ Expected equality of these values:
   20
 [  FAILED  ] lmsm_machine_suite.test_branch_if_positive_instruction_works_when_val_positive (0 ms)
 [ RUN      ] lmsm_machine_suite.test_branch_if_positive_instruction_works_when_val_not_positive
-[       OK ] lmsm_machine_suite.test_branch_if_positive_instruction_works_when_val_not_positive (0 ms)
+[       OK ] lmsm_machine_suite.test_branch_if_positive_instruction_works_when_val_not_positive (1 ms)
 [ RUN      ] lmsm_machine_suite.test_output_instruction
 /home/parallels/autograder/csci-366-fall2023/grading/scripts/repos/elyse_dalager/lmsm/test/lmsm.cpp:117: Failure
 Expected equality of these values:
@@ -163,7 +163,7 @@ Expected equality of these values:
   the_machine->memory[199]
     Which is: 0
   20
-[  FAILED  ] lmsm_machine_suite.test_sadd_instruction_adds_the_values_on_the_stack (1 ms)
+[  FAILED  ] lmsm_machine_suite.test_sadd_instruction_adds_the_values_on_the_stack (0 ms)
 [ RUN      ] lmsm_machine_suite.test_sadd_instruction_properly_caps_values
 /home/parallels/autograder/csci-366-fall2023/grading/scripts/repos/elyse_dalager/lmsm/test/lmsm.cpp:264: Failure
 Expected equality of these values:
