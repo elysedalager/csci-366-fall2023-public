@@ -86,7 +86,7 @@ TEST(lmsm_machine_suite,test_branch_if_positive_instruction_works_when_val_zero)
     lmsm *the_machine = lmsm_create();
     the_machine->accumulator = 0;
     ASSERT_EQ(the_machine->program_counter, 0);
-    lmsm_exec_instruction(the_machine, 820); // BRZ 20
+    lmsm_exec_instruction(the_machine, 820); // BRP 20
     ASSERT_EQ(the_machine->program_counter, 20);
     lmsm_delete(the_machine);
 }
@@ -95,7 +95,7 @@ TEST(lmsm_machine_suite,test_branch_if_positive_instruction_works_when_val_posit
     lmsm *the_machine = lmsm_create();
     the_machine->accumulator = 10;
     ASSERT_EQ(the_machine->program_counter, 0);
-    lmsm_exec_instruction(the_machine, 820); // BRZ 20
+    lmsm_exec_instruction(the_machine, 820); // BRP 20
     ASSERT_EQ(the_machine->program_counter, 20);
     lmsm_delete(the_machine);
 }
@@ -104,7 +104,7 @@ TEST(lmsm_machine_suite,test_branch_if_positive_instruction_works_when_val_not_p
     lmsm *the_machine = lmsm_create();
     the_machine->accumulator = -10;
     ASSERT_EQ(the_machine->program_counter, 0);
-    lmsm_exec_instruction(the_machine, 820); // BRZ 20
+    lmsm_exec_instruction(the_machine, 820); // BRP 20
     ASSERT_EQ(the_machine->program_counter, 0);
     lmsm_delete(the_machine);
 }
@@ -208,7 +208,6 @@ TEST(lmsm_machine_suite,test_drop_instruction_enters_error_state_if_nothing_to_p
     ASSERT_EQ(the_machine->error_code, error_code::ERROR_BAD_STACK);
     lmsm_delete(the_machine);
 }
-
 
 TEST(lmsm_machine_suite,test_swap_instruction_swaps_top_of_stack){
     lmsm *the_machine = lmsm_create();

@@ -8,6 +8,7 @@
 #include "assembler.h"
 #include "firth.h"
 #include "lmsm.h"
+#include <stdio.h>
 #include <stdlib.h>
 
 char * repl_read_file(char * filename){

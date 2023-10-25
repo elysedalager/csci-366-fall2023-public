@@ -2,6 +2,7 @@
 // Created by carson on 11/18/21.
 //
 #include "lmsm.h"
+#include <stdio.h>
 
 #ifndef LMSM_REPL_H
 #define LMSM_REPL_H
