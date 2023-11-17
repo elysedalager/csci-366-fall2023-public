@@ -84,7 +84,7 @@ Expected equality of these values:
   result->error
     Which is: NULL
   ASM_ERROR_UNKNOWN_INSTRUCTION
-    Which is: 0xaaaac90a0300
+    Which is: 0xaaaac0cc0300
 [  FAILED  ] parsing_tests.unknown_instruction_is_handled (0 ms)
 [ RUN      ] parsing_tests.no_argument_for_instruction_causes_error
 /home/parallels/autograder/csci-366-fall2023/grading/scripts/repos/elyse_dalager/lmsm/test/assembler.cpp:127: Failure
@@ -92,15 +92,15 @@ Expected equality of these values:
   result->error
     Which is: NULL
   ASM_ERROR_ARG_REQUIRED
-    Which is: 0xaaaac90a0320
-[  FAILED  ] parsing_tests.no_argument_for_instruction_causes_error (0 ms)
+    Which is: 0xaaaac0cc0320
+[  FAILED  ] parsing_tests.no_argument_for_instruction_causes_error (1 ms)
 [ RUN      ] parsing_tests.numbers_out_of_machine_range_cause_error
 /home/parallels/autograder/csci-366-fall2023/grading/scripts/repos/elyse_dalager/lmsm/test/assembler.cpp:134: Failure
 Expected equality of these values:
   result->error
     Which is: NULL
   ASM_ERROR_OUT_OF_RANGE
-    Which is: 0xaaaac90a0348
+    Which is: 0xaaaac0cc0348
 [  FAILED  ] parsing_tests.numbers_out_of_machine_range_cause_error (0 ms)
 [ RUN      ] parsing_tests.negative_numbers_out_of_machine_range_are_capped_properly
 /home/parallels/autograder/csci-366-fall2023/grading/scripts/repos/elyse_dalager/lmsm/test/assembler.cpp:141: Failure
@@ -108,9 +108,9 @@ Expected equality of these values:
   result->error
     Which is: NULL
   ASM_ERROR_OUT_OF_RANGE
-    Which is: 0xaaaac90a0348
+    Which is: 0xaaaac0cc0348
 [  FAILED  ] parsing_tests.negative_numbers_out_of_machine_range_are_capped_properly (0 ms)
-[----------] 10 tests from parsing_tests (0 ms total)
+[----------] 10 tests from parsing_tests (1 ms total)
 
 [----------] 30 tests from code_generation
 [ RUN      ] code_generation.add_instruction_generates_properly
@@ -308,7 +308,7 @@ Expected equality of these values:
   result->error
     Which is: NULL
   ASM_ERROR_BAD_LABEL
-    Which is: 0xaaaac90a0338
+    Which is: 0xaaaac0cc0338
 [  FAILED  ] code_generation.bad_label_causes_error (0 ms)
 [----------] 30 tests from code_generation (0 ms total)
 
@@ -373,7 +373,7 @@ Expected equality of these values:
 [ RUN      ] lmsm_machine_suite.test_swap_instruction_swaps_top_of_stack
 [       OK ] lmsm_machine_suite.test_swap_instruction_swaps_top_of_stack (0 ms)
 [ RUN      ] lmsm_machine_suite.test_swap_instruction_enters_error_state_if_nothing_to_swap
-[       OK ] lmsm_machine_suite.test_swap_instruction_enters_error_state_if_nothing_to_swap (1 ms)
+[       OK ] lmsm_machine_suite.test_swap_instruction_enters_error_state_if_nothing_to_swap (0 ms)
 [ RUN      ] lmsm_machine_suite.test_sadd_instruction_adds_the_values_on_the_stack
 [       OK ] lmsm_machine_suite.test_sadd_instruction_adds_the_values_on_the_stack (0 ms)
 [ RUN      ] lmsm_machine_suite.test_sadd_instruction_properly_caps_values
@@ -414,7 +414,7 @@ Expected equality of these values:
 [       OK ] lmsm_machine_suite.step_steps_to_the_next_instruction_and_executes_current (0 ms)
 [ RUN      ] lmsm_machine_suite.step_does_not_step_to_the_next_instruction_and_execute_if_machine_is_halted
 [       OK ] lmsm_machine_suite.step_does_not_step_to_the_next_instruction_and_execute_if_machine_is_halted (0 ms)
-[----------] 43 tests from lmsm_machine_suite (1 ms total)
+[----------] 43 tests from lmsm_machine_suite (0 ms total)
 
 [----------] Global test environment tear-down
 [==========] 90 tests from 5 test suites ran. (1 ms total)
