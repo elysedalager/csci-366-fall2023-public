@@ -32,7 +32,7 @@ Expected equality of these values:
 /home/parallels/autograder/csci-366-fall2023/grading/scripts/repos/elyse_dalager/lmsm/test/assembler.cpp:87: Failure
 Expected equality of these values:
   result->error
-    Which is: 0xaaaadf9d0f00
+    Which is: 0xaaaadfcb0f00
   nullptr
     Which is: (nullptr)
 [  FAILED  ] parsing_tests.label_is_parsed_correctly (0 ms)
@@ -78,7 +78,7 @@ Expected equality of these values:
 [ RUN      ] code_generation.dat_instruction_generates_properly
 [       OK ] code_generation.dat_instruction_generates_properly (0 ms)
 [ RUN      ] code_generation.spush_instruction_generates_properly
-[       OK ] code_generation.spush_instruction_generates_properly (1 ms)
+[       OK ] code_generation.spush_instruction_generates_properly (0 ms)
 [ RUN      ] code_generation.spop_instruction_generates_properly
 [       OK ] code_generation.spop_instruction_generates_properly (0 ms)
 [ RUN      ] code_generation.sdup_instruction_generates_properly
