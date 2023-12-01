@@ -264,8 +264,8 @@ void asm_gen_code_for_instruction(asm_compilation_result  * result, asm_instruct
     } else if(strcmp("SPUSH", instruction->instruction) == 0){
         result->code[instruction->offset] = 920;
     } else if(strcmp("SPUSHI", instruction->instruction) == 0){
-        result->code[instruction->offset] = 920;
-        result->code[instruction->offset+1] = 400 + value_for_instruction;
+        result->code[instruction->offset+1] = 920;
+        result->code[instruction->offset] = 400 + value_for_instruction;
     } else if(strcmp("SPOP", instruction->instruction) == 0){
         result->code[instruction->offset] = 921;
     } else if(strcmp("SDUP", instruction->instruction) == 0){
