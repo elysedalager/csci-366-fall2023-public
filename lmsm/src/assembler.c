@@ -119,9 +119,6 @@ int asm_is_num(char * token){
 }
 
 int asm_find_label(asm_instruction *root, char *label) {
-    // TODO - scan the linked list for the given label, return -1 if not found
-    // if the label reference instruction is not null, then you have a label referring to another instruction
-    // then create function that scans list and find instructions to find label, return value for its offset
     while (root != NULL) {
         if (root->label != NULL && strcmp(root->label, label) == 0) {
             return root->offset;
@@ -143,17 +140,6 @@ void asm_parse_src(asm_compilation_result * result, char * original_src){
     asm_instruction * last_instruction = NULL;
     asm_instruction * current_instruction = NULL;
 
-    //TODO - generate a linked list of instructions and store the first into
-    //       the result->root
-    //
-    //       generate the following errors as appropriate:
-    //
-    //       ASM_ERROR_UNKNOWN_INSTRUCTION - when an unknown instruction is encountered
-    //       ASM_ERROR_ARG_REQUIRED        - when an instruction does not have a proper argument passed to it
-    //       ASM_ERROR_OUT_OF_RANGE        - when a number argument is out of range (-999 to 999)
-    //
-    //       store the error in result->error
-
     char *current_str = strtok(src, " \n");
     while (current_str != NULL){
         // [LABEL] INST [VAL] - current_str can either be a label or a value (num)
@@ -165,13 +151,15 @@ void asm_parse_src(asm_compilation_result * result, char * original_src){
         if(asm_is_instruction(current_str)) {
             type = current_str;
             current_str = strtok(NULL, " \n");
-            result->error = NULL;
         } else{
-            // TODO: handle label
             label = current_str;
             current_str = strtok(NULL, " \n");
-            result->error = ASM_ERROR_UNKNOWN_INSTRUCTION;
-            type = "OUT";
+            if (asm_is_instruction(current_str)){
+                type = current_str;
+                current_str = strtok(NULL, " \n");
+            } else {
+                result->error = ASM_ERROR_UNKNOWN_INSTRUCTION;
+            }
         }
 
         if (asm_instruction_requires_arg(type)){
@@ -180,7 +168,6 @@ void asm_parse_src(asm_compilation_result * result, char * original_src){
                 return;
             } else{
                 if(asm_is_num(current_str)){
-                    // TODO: handle value case
                     sscanf(current_str, "%d", &value);
                     if(value > 999){
                         value = 999;
@@ -192,7 +179,6 @@ void asm_parse_src(asm_compilation_result * result, char * original_src){
                     }
                     current_str = strtok(NULL, " \n");
                 } else{
-                    // TODO: handle label case
                     label_ref = current_str;
                     current_str = strtok(NULL, " \n");
                 }
@@ -200,12 +186,11 @@ void asm_parse_src(asm_compilation_result * result, char * original_src){
         }
 
         asm_instruction *new_inst = asm_make_instruction(type, label, label_ref, value, last_instruction);
-
+//        last_instruction = new_inst;
         if(result->root == NULL){
             result->root = new_inst;
         }
         last_instruction = new_inst;
-        last_instruction->next = current_instruction;
     }
 }
 
@@ -214,13 +199,6 @@ void asm_parse_src(asm_compilation_result * result, char * original_src){
 //======================================================
 
 void asm_gen_code_for_instruction(asm_compilation_result  * result, asm_instruction *instruction) {
-    //TODO - generate the machine code for the given instruction
-    //
-    // note that some instructions will take up multiple slots
-    //
-    // note that if the instruction has a label reference rather than a raw number reference
-    // you will need to look it up with `asm_find_label` and, if the label does not exist,
-    // report the error as ASM_ERROR_BAD_LABEL
 
     int value_for_instruction = instruction->value;
 
@@ -228,6 +206,7 @@ void asm_gen_code_for_instruction(asm_compilation_result  * result, asm_instruct
         value_for_instruction = asm_find_label(result->root, instruction->label_reference);
         if (value_for_instruction == -1) {
             result->error = ASM_ERROR_BAD_LABEL;
+            return;
         }
     }
 
