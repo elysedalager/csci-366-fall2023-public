@@ -3,12 +3,7 @@ Running main() from /home/parallels/autograder/csci-366-fall2023/grading/scripts
 [----------] Global test environment set-up.
 [----------] 6 tests from instruction_construction
 [ RUN      ] instruction_construction.multiplication_works_in_firth
-/home/parallels/autograder/csci-366-fall2023/grading/scripts/repos/elyse_dalager/lmsm/test/firth.cpp:19: Failure
-Expected equality of these values:
-  the_machine->accumulator
-    Which is: 3
-  6
-[  FAILED  ] instruction_construction.multiplication_works_in_firth (0 ms)
+[       OK ] instruction_construction.multiplication_works_in_firth (0 ms)
 [ RUN      ] instruction_construction.max_works_in_firth
 [       OK ] instruction_construction.max_works_in_firth (0 ms)
 [ RUN      ] instruction_construction.make_instruction_basic_instruction_fields_are_set
@@ -29,10 +24,10 @@ Expected equality of these values:
 [ RUN      ] parsing_tests.two_instruction_parsing_works_w_newline
 [       OK ] parsing_tests.two_instruction_parsing_works_w_newline (0 ms)
 [ RUN      ] parsing_tests.label_is_parsed_correctly
-/home/parallels/autograder/csci-366-fall2023/grading/scripts/repos/elyse_dalager/lmsm/test/assembler.cpp:87: Failure
+/home/parallels/autograder/csci-366-fall2023/grading/scripts/repos/elyse_dalager/lmsm/test/assembler.cpp:91: Failure
 Expected equality of these values:
-  result->error
-    Which is: 0xaaaadfcb0f00
+  result->root->next
+    Which is: 0xaaab049094a0
   nullptr
     Which is: (nullptr)
 [  FAILED  ] parsing_tests.label_is_parsed_correctly (0 ms)
@@ -100,33 +95,18 @@ Expected equality of these values:
 [ RUN      ] code_generation.sdiv_instruction_generates_properly
 [       OK ] code_generation.sdiv_instruction_generates_properly (0 ms)
 [ RUN      ] code_generation.spushi_instruction_generates_properly
-/home/parallels/autograder/csci-366-fall2023/grading/scripts/repos/elyse_dalager/lmsm/test/assembler.cpp:444: Failure
-Expected equality of these values:
-  result->code[0]
-    Which is: 920
-  401
-[  FAILED  ] code_generation.spushi_instruction_generates_properly (0 ms)
+[       OK ] code_generation.spushi_instruction_generates_properly (0 ms)
 [ RUN      ] code_generation.call_instruction_generates_properly
-/home/parallels/autograder/csci-366-fall2023/grading/scripts/repos/elyse_dalager/lmsm/test/assembler.cpp:459: Failure
-Expected equality of these values:
-  result->code[0]
-    Which is: 920
-  401
-[  FAILED  ] code_generation.call_instruction_generates_properly (0 ms)
+[       OK ] code_generation.call_instruction_generates_properly (0 ms)
 [ RUN      ] code_generation.ret_instruction_generates_properly
 [       OK ] code_generation.ret_instruction_generates_properly (0 ms)
 [ RUN      ] code_generation.instructions_next_to_one_another_generate_in_order_properly
-/home/parallels/autograder/csci-366-fall2023/grading/scripts/repos/elyse_dalager/lmsm/test/assembler.cpp:490: Failure
-Expected equality of these values:
-  result->code[0]
-    Which is: 920
-  401
-[  FAILED  ] code_generation.instructions_next_to_one_another_generate_in_order_properly (0 ms)
+[       OK ] code_generation.instructions_next_to_one_another_generate_in_order_properly (0 ms)
 [ RUN      ] code_generation.labels_resolve_at_code_generation_time
 [       OK ] code_generation.labels_resolve_at_code_generation_time (0 ms)
 [ RUN      ] code_generation.bad_label_causes_error
 [       OK ] code_generation.bad_label_causes_error (0 ms)
-[----------] 30 tests from code_generation (1 ms total)
+[----------] 30 tests from code_generation (0 ms total)
 
 [----------] 1 test from end_to_end
 [ RUN      ] end_to_end.bootstrap
@@ -223,13 +203,9 @@ Expected equality of these values:
 [----------] 43 tests from lmsm_machine_suite (0 ms total)
 
 [----------] Global test environment tear-down
-[==========] 90 tests from 5 test suites ran. (1 ms total)
-[  PASSED  ] 85 tests.
-[  FAILED  ] 5 tests, listed below:
-[  FAILED  ] instruction_construction.multiplication_works_in_firth
+[==========] 90 tests from 5 test suites ran. (0 ms total)
+[  PASSED  ] 89 tests.
+[  FAILED  ] 1 test, listed below:
 [  FAILED  ] parsing_tests.label_is_parsed_correctly
-[  FAILED  ] code_generation.spushi_instruction_generates_properly
-[  FAILED  ] code_generation.call_instruction_generates_properly
-[  FAILED  ] code_generation.instructions_next_to_one_another_generate_in_order_properly
 
- 5 FAILED TESTS
+ 1 FAILED TEST
