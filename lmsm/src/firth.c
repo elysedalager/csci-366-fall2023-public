@@ -136,7 +136,6 @@ firth_parse_element *firth_parse_call(firth_tokens *tokens, firth_compilation_re
 firth_parse_element *firth_parse_op(firth_tokens *tokens, firth_compilation_result *result) {
     if (firth_match_token("+", tokens) ||
         firth_match_token("-", tokens) ||
-        // TODO - add *, /, max and min
         firth_match_token("*", tokens) ||
         firth_match_token("/", tokens) ||
         firth_match_token("max", tokens) ||
@@ -228,9 +227,8 @@ void firth_code_gen_elt(firth_parse_element * elt, firth_compilation_result *res
             strcat(result->lmsm_assembly, "SADD\n");
         } else if (firth_elt_token_equals(elt, "-")) {
             strcat(result->lmsm_assembly, "SSUB\n");
-            // TODO - add assembly generation for *, /, max and min
         } else if (firth_elt_token_equals(elt, "*")) {
-            strcat(result->lmsm_assembly, "SMULT\n");
+            strcat(result->lmsm_assembly, "SMUL\n");
         } else if (firth_elt_token_equals(elt, "/")) {
             strcat(result->lmsm_assembly, "SDIV\n");
         } else if (firth_elt_token_equals(elt, "max")) {

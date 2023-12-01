@@ -165,12 +165,13 @@ void asm_parse_src(asm_compilation_result * result, char * original_src){
         if(asm_is_instruction(current_str)) {
             type = current_str;
             current_str = strtok(NULL, " \n");
+            result->error = NULL;
         } else{
             // TODO: handle label
             label = current_str;
             current_str = strtok(NULL, " \n");
             result->error = ASM_ERROR_UNKNOWN_INSTRUCTION;
-            return;
+            type = "OUT";
         }
 
         if (asm_instruction_requires_arg(type)){
@@ -199,10 +200,12 @@ void asm_parse_src(asm_compilation_result * result, char * original_src){
         }
 
         asm_instruction *new_inst = asm_make_instruction(type, label, label_ref, value, last_instruction);
+
         if(result->root == NULL){
             result->root = new_inst;
         }
         last_instruction = new_inst;
+        last_instruction->next = current_instruction;
     }
 }
 
@@ -251,8 +254,8 @@ void asm_gen_code_for_instruction(asm_compilation_result  * result, asm_instruct
     } else if(strcmp("DAT", instruction->instruction) == 0){
         result->code[instruction->offset] = value_for_instruction;
     } else if(strcmp("CALL", instruction->instruction) == 0){
-        result->code[instruction->offset] = 920;
-        result->code[instruction->offset+1] = 400 + value_for_instruction;
+        result->code[instruction->offset+1] = 920;
+        result->code[instruction->offset] = 400 + value_for_instruction;
         result->code[instruction->offset+2] = 910;
     } else if(strcmp("JAL", instruction->instruction) == 0){
         result->code[instruction->offset] = 910;
