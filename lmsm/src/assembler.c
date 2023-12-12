@@ -59,7 +59,6 @@ asm_instruction * asm_make_instruction(char* type, char *label, char *label_refe
     } else {
         new_instruction->slots = 1;
     }
-
     return new_instruction;
 }
 
@@ -137,6 +136,7 @@ void asm_parse_src(asm_compilation_result * result, char * original_src){
     // copy over so strtok can mutate
     char * src = calloc(strlen(original_src) + 1, sizeof(char));
     strcat(src, original_src);
+
     asm_instruction * last_instruction = NULL;
     asm_instruction * current_instruction = NULL;
 
@@ -159,6 +159,7 @@ void asm_parse_src(asm_compilation_result * result, char * original_src){
                 current_str = strtok(NULL, " \n");
             } else {
                 result->error = ASM_ERROR_UNKNOWN_INSTRUCTION;
+                return;
             }
         }
 
